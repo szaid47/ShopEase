@@ -3,17 +3,19 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserPlus,Mail,Lock,User,ArrowRight,Loader} from "lucide-react";
 import {motion} from "framer-motion"; 
+import { useUserStore } from "../store/useUserStore";
 const SignupPage = () => {
-  const loading = false;
+  
   const [formData ,setFormData] = useState({
     name:"",
     email:"",
     password:"",
     confirmPassword:""
   });
+  const {signup,loading} = useUserStore();
   const handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(formData);
+    signup(formData);
   } 
     
   return (
@@ -24,7 +26,7 @@ const SignupPage = () => {
       animate={{opacity:1,y:0}}
       transition={{duration:0.8}}
     >
-      <h2 className='mt-6 text-center text-3xl font-extrabold text-emerald-400'>Create your Account</h2>
+      <h2 className='mt-6 text-center text-3xl font-extrabold py-5 text-emerald-400'>Create your Account</h2>
       </motion.div>
        <motion.div
       className='sm:mx-auto sm:w-full sm:max-w-md'
