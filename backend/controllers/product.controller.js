@@ -39,7 +39,7 @@ export const createProduct = async (req, res) => {
 
         let cloudinaryResponse= null
         if(image){
-          cloudinaryResponse=  await cloudinary.uploader.upload(image,{folder:"products"})
+         cloudinaryResponse=  await cloudinary.uploader.upload(image,{folder:"products"})
       }
       const product = await Product.create({
           name,
@@ -84,7 +84,7 @@ export const deleteProduct = async (req, res) => {
 export const getRecommendedProducts = async (req, res) => {
     try {
         const product = await Product.aggregate([
-            { $sample: { size: 3 } },
+            { $sample: { size: 4 } },
             {$project: {_id:1,name:1,price:1,description:1,image:1}}
         ]);
         res.json({product});
