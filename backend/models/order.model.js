@@ -33,7 +33,7 @@ const orderSchema = new mongoose.Schema(
 		},
 		stripeSessionId: {
 			type: String,
-			unique: true,
+			sparse:true,
 		},
 	},
 	{ timestamps: true }
