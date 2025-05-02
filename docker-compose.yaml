@@ -1,0 +1,43 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    networks:
+      - mern-2
+    depends_on:
+      - mongodb
+      - redis
+    env_file:
+      - ./backend/.env  # ✅ make sure this path is correct and the file exists
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - mern-2
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    networks:
+      - mern-2
+    volumes:
+      - mongo-data:/data/db
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    networks:
+      - mern-2
+
+networks:
+  mern-2:
+    driver: bridge
+
+volumes:
+  mongo-data:
+    driver: local
