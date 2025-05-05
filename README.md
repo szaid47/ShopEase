@@ -46,9 +46,9 @@ A production-ready e-commerce web application featuring secure Stripe payment in
 
 ## 🛠️ Tech Stack
 
-**Frontend:** React / Next.js  
+**Frontend:** Reac  
 **Backend:** Node.js / Express  
-**Database:** MongoDB / PostgreSQL  
+**Database:** MongoDB ,Redis  
 **Payments:** Stripe API  
 **Containerization:** Docker  
 **Authentication:** JWT / OAuth  
