@@ -68,3 +68,5 @@ A production-ready e-commerce web application featuring secure Stripe payment in
 ```bash
 git clone https://github.com/yourusername/ecommerce-platform.git
 cd ecommerce-platform
+# Build and run all services
+docker-compose up --build
